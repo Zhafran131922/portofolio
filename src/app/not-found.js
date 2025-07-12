@@ -171,9 +171,9 @@ export default function NotFound() {
           </motion.h2>
           
           <p className="text-[#c1f5ff]/80 mb-8">
-            The page you're looking for doesn't exist or has been moved.
+            The page you&apos;re looking for doesn&apos;t exist or has been moved.
             <br />
-            Let's get you back to safety.
+            Let&apos;s get you back to safety.
           </p>
           
           <motion.div
