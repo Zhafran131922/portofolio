@@ -140,35 +140,48 @@ export default function AboutUs() {
               variants={itemVariants}
               transition={{ delay: 0.4 }}
             >
-              <motion.button
-                className="flex items-center gap-3 px-6 py-3 rounded-full bg-gradient-to-r from-[#00b7c2] to-[#4dd0e1] text-white group relative overflow-hidden"
-                whileHover={{
-                  y: -3,
-                  boxShadow: "0 10px 20px rgba(0, 183, 194, 0.3)",
-                }}
-                whileTap={{ scale: 0.95 }}
+              <a
+                href="https://drive.google.com/file/d/1lWU-Ql9h-IsyDYOSZ0H8oiYRSY6Z3T4C/view?usp=sharing" // ganti dengan path CV kamu
+                download
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-[#4dd0e1] to-[#00b7c2] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <span className="relative z-10 flex items-center gap-2">
-                  <FaDownload className="group-hover:animate-bounce" />
-                  <span>Download CV</span>
-                </span>
-              </motion.button>
-
-              <motion.button
-                className="flex items-center gap-3 px-6 py-3 rounded-full bg-white/10 text-white border border-white/20 backdrop-blur-sm group relative overflow-hidden"
-                whileHover={{
-                  y: -3,
-                  boxShadow: "0 10px 20px rgba(77, 208, 225, 0.2)",
-                }}
-                whileTap={{ scale: 0.95 }}
+                <motion.button
+                  className="flex items-center gap-3 px-6 py-3 rounded-full bg-gradient-to-r from-[#00b7c2] to-[#4dd0e1] text-white group relative overflow-hidden"
+                  whileHover={{
+                    y: -3,
+                    boxShadow: "0 10px 20px rgba(0, 183, 194, 0.3)",
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <div className="absolute inset-0 bg-gradient-to-r from-[#4dd0e1] to-[#00b7c2] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <span className="relative z-10 flex items-center gap-2">
+                    <FaDownload className="group-hover:animate-bounce" />
+                    <span>Download CV</span>
+                  </span>
+                </motion.button>
+              </a>
+              <a
+                href="https://wa.me/6281329251543" // ganti dengan path CV kamu
+                download
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-[#4dd0e1]/20 to-[#00b7c2]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <span className="relative z-10 flex items-center gap-2">
-                  <FaWhatsapp className="group-hover:animate-pulse w-5 h-5" />
-                  <span>Contact Me</span>
-                </span>
-              </motion.button>
+                <motion.button
+                  className="flex items-center gap-3 px-6 py-3 rounded-full bg-white/10 text-white border border-white/20 backdrop-blur-sm group relative overflow-hidden"
+                  whileHover={{
+                    y: -3,
+                    boxShadow: "0 10px 20px rgba(77, 208, 225, 0.2)",
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <div className="absolute inset-0 bg-gradient-to-r from-[#4dd0e1]/20 to-[#00b7c2]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <span className="relative z-10 flex items-center gap-2">
+                    <FaWhatsapp className="group-hover:animate-pulse w-5 h-5" />
+                    <span>Contact Me</span>
+                  </span>
+                </motion.button>
+              </a>
             </motion.div>
           </div>
 
@@ -260,7 +273,7 @@ export default function AboutUs() {
             icon={<MdImportantDevices className="text-4xl" />}
             title="Education"
             description="Bachelor's degree in Computer and Information Education from UNNES"
-            stats="GPA: 3.8"
+            stats="GPA: 3.73"
           />
           <FeatureCard
             icon={<MdDataUsage className="text-4xl" />}

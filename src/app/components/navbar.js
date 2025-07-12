@@ -2,12 +2,12 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { 
-  FaHome, 
-  FaUserAlt, 
-  FaBriefcase, 
+import {
+  FaHome,
+  FaUserAlt,
+  FaBriefcase,
   FaComments,
-  FaBars
+  FaBars,
 } from "react-icons/fa";
 
 export default function Navbar() {
@@ -27,7 +27,7 @@ export default function Navbar() {
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 10);
-      
+
       // Detect active section
       const sections = ["home", "about", "portfolio", "contact"];
       for (const section of sections) {
@@ -81,12 +81,14 @@ export default function Navbar() {
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <div className="w-full max-w-6xl mx-auto flex justify-between items-center">
-            <motion.div 
+            <motion.div
               className="font-bold tracking-wide cursor-pointer"
-              whileHover={{ scale: 1.05 }} 
+              whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <span className="text-[#4dd0e1] text-xl">Zhfrn</span>
+              <span className="text-xl font-bold bg-gradient-to-r from-[#4dd0e1] to-[#00b7c2] to-[#00b7c2] text-transparent bg-clip-text">
+                Zhfrn
+              </span>
             </motion.div>
 
             <ul className="flex space-x-6 sm:space-x-8 font-light text-sm">
@@ -131,7 +133,7 @@ export default function Navbar() {
             {navItems.map((item) => {
               const Icon = item.icon;
               const isActive = activeSection === item.id;
-              
+
               return (
                 <motion.button
                   key={item.id}
@@ -143,7 +145,7 @@ export default function Navbar() {
                   whileTap={{ scale: 0.9 }}
                 >
                   <Icon className="text-xl" />
-                  
+
                   {isActive && (
                     <motion.div
                       className="absolute inset-0 rounded-full bg-[#4dd0e1]/10 border border-[#4dd0e1]/30"

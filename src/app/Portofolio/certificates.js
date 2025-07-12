@@ -1,58 +1,82 @@
 "use client";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import Gambarsertif from "../../../public/assets/image.jpg";
+import sertif1 from "../../../public/assets/sertif1.jpg";
+import sertif2 from "../../../public/assets/sertif2.jpg";
+import sertif3 from "../../../public/assets/sertif3.jpg";
+import sertif4 from "../../../public/assets/sertif4.jpg";
+import sertif5 from "../../../public/assets/sertif5.jpg";
+import sertif6 from "../../../public/assets/sertif6.jpg";
+import sertif7 from "../../../public/assets/sertif7.jpg";
+import sertif8 from "../../../public/assets/sertif8.jpg";
+
 
 export default function Certificates() {
   const certificates = [
     {
       id: 1,
-      imageSrc: Gambarsertif,
-      altText: "Google Data Analytics Professional Certificate",
-      captionText: "Google Data Analytics",
+      imageSrc: sertif2,
+      altText: "Bangkit Certificate of Completion",
+      captionText: "Cloud Computing",
       issuer: "Google",
-      date: "June 2023"
+      date: "January 19, 2024"
     },
     {
       id: 2,
-      imageSrc: Gambarsertif,
-      altText: "Google Cloud Professional Certificate",
-      captionText: "Google Cloud",
-      issuer: "Google",
-      date: "August 2023"
+      imageSrc: sertif1,
+      altText: "Certificate of Course Completion",
+      captionText: "Networking Devices and Initial Configuration",
+      issuer: "Cisco Networking Academy",
+      date: "January 31, 2024"
     },
     {
       id: 3,
-      imageSrc: Gambarsertif,
-      altText: "Google IT Support Professional Certificate",
-      captionText: "Google IT Support",
-      issuer: "Google",
-      date: "April 2023"
+      imageSrc: sertif3,
+      altText: "Sertifikat Kompetensi Kelulusan",
+      captionText: "Belajar Membuat Aplikasi Backend untuk Pemula dengan Google Cloud",
+      issuer: "Dicoding",
+      date: "5 Oktober 2025"
     },
     {
       id: 4,
-      imageSrc: Gambarsertif,
-      altText: "Microsoft Azure Fundamentals",
-      captionText: "Azure Fundamentals",
-      issuer: "Microsoft",
-      date: "March 2024"
+      imageSrc: sertif4,
+      altText: "Sertifikat Kompetensi Kelulusan",
+      captionText: "Belajar Dasar Pemrograman Javascript",
+      issuer: "Dicoding",
+      date: "21 September 2023"
     },
     {
       id: 5,
-      imageSrc: Gambarsertif,
-      altText: "AWS Certified Solutions Architect",
-      captionText: "AWS Solutions Architect",
-      issuer: "Amazon",
-      date: "January 2024"
+      imageSrc: sertif5,
+      altText: "Sertifikat Kompetensi Kelulusan",
+      captionText: "Belajar Dasar Pemrograman Web",
+      issuer: "Dicoding",
+      date: "13 September 2023"
     },
     {
       id: 6,
-      imageSrc: Gambarsertif,
-      altText: "React Advanced Concepts",
-      captionText: "Advanced React",
-      issuer: "Meta",
-      date: "February 2024"
+      imageSrc: sertif6,
+      altText: "Sertifikat Kompetensi Kelulusan",
+      captionText: "Menjadi Google Cloud Engineer",
+      issuer: "Dicoding",
+      date: "7 November 2023"
     },
+    {
+      id: 7,
+      imageSrc: sertif7,
+      altText: "Course Certificate",
+      captionText: "The Bits and Bytes of Computer Networking",
+      issuer: "Coursera",
+      date: "August 27, 2023"
+    },
+    {
+      id: 8,
+      imageSrc: sertif8,
+      altText: "Course Certificate",
+      captionText: "System Administration and IT Infrastructure Services",
+      issuer: "Coursera",
+      date: "October 15, 2023"
+    }
   ];
 
   // Animation variants
@@ -136,7 +160,7 @@ export default function Certificates() {
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a] via-transparent to-transparent" />
                 
                 {/* Hover Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-b from-[#00b7c2]/80 to-[#4dd0e1]/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5">
+                <div className="absolute inset-0 bg-gradient-to-b from-[#0f172a]/80 to-[#4dd0e1]/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5">
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -146,20 +170,13 @@ export default function Certificates() {
                     <h3 className="text-xl font-bold text-white mb-1">{cert.captionText}</h3>
                     <p className="text-gray-200 text-sm mb-2">{cert.issuer} • {cert.date}</p>
                     <div className="flex justify-center gap-3 mt-4">
-                      <button className="px-4 py-2 bg-white/10 backdrop-blur-sm text-white rounded-full text-sm hover:bg-white/20 transition-colors">
-                        View Details
-                      </button>
                       <button className="px-4 py-2 bg-white text-[#0a1a1f] rounded-full text-sm font-medium hover:bg-[#4dd0e1] transition-colors">
-                        Verify
+                        View Details
                       </button>
                     </div>
                   </motion.div>
                 </div>
                 
-                {/* Always visible badge */}
-                <div className="absolute top-4 right-4 bg-[#4dd0e1]/20 backdrop-blur-sm px-3 py-1 rounded-full text-xs text-[#4dd0e1] font-medium">
-                  {cert.issuer}
-                </div>
               </div>
               
               {/* Floating ribbon effect */}
@@ -172,22 +189,6 @@ export default function Certificates() {
               />
             </motion.div>
           ))}
-        </motion.div>
-        
-        {/* View All Button */}
-        <motion.div
-          className="flex justify-center mt-12"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ delay: 0.5 }}
-          viewport={{ once: true }}
-        >
-          <button className="px-6 py-3 bg-[#4dd0e1]/10 backdrop-blur-sm border border-[#4dd0e1]/30 text-[#4dd0e1] rounded-full hover:bg-[#4dd0e1]/20 transition-colors flex items-center gap-2">
-            View All Certificates
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L9 9.414V13a1 1 0 102 0V9.414l1.293 1.293a1 1 0 001.414-1.414z" clipRule="evenodd" />
-            </svg>
-          </button>
         </motion.div>
       </div>
     </section>

@@ -109,7 +109,7 @@ export default function LeftContent() {
         }}
       >
         <span className="inline-block mr-2 animate-pulse">✨</span>
-        Ready to Innovate
+        Designing Smarter Futures
       </motion.div>
       {/* Title dengan animasi gradient text */}
       <motion.h1
@@ -152,22 +152,21 @@ export default function LeftContent() {
         className="text-base md:text-lg text-[#c1f5ff] leading-relaxed max-w-lg"
         variants={itemVariants}
       >
-        Menciptakan Website Yang{" "}
+        I craft{" "}
         <GradientText colors={["#4dd0e1", "#00b7c2"]} className="font-semibold">
-          Inovatif
+          innovative
         </GradientText>
-        ,
+        ,{" "}
         <GradientText colors={["#00b7c2", "#4dd0e1"]} className="font-semibold">
-          {" "}
-          Fungsional
+          reliable
         </GradientText>
-        , dan
+        , and{" "}
         <GradientText colors={["#4dd0e1", "#00b7c2"]} className="font-semibold">
-          {" "}
-          User-Friendly
+          user-friendly
         </GradientText>{" "}
-        untuk Solusi Digital.
+        websites that deliver real impact in the digital world.
       </motion.p>
+
       {/* Tech Stack dengan animasi stagger */}
       <motion.div
         className="flex flex-wrap gap-3 mt-2"
@@ -208,7 +207,7 @@ export default function LeftContent() {
       </motion.div>
       {/* Buttons dengan animasi hover */}
       <motion.div className="flex flex-wrap gap-4 mt-6" variants={itemVariants}>
-        <Link href="#github">
+        <Link href="https://github.com/Zhafran131922">
           <motion.button
             className="flex items-center gap-3 px-6 py-3 rounded-full bg-gradient-to-r from-[#00b7c2] to-[#4dd0e1] text-white group relative overflow-hidden"
             whileHover={{
@@ -226,12 +225,12 @@ export default function LeftContent() {
           </motion.button>
         </Link>
 
-        <Link href="#linkedin">
+        <Link href="https://linkedin.com/in/irzhafranrp">
           <motion.button
- className="flex items-center gap-3 px-6 py-3 rounded-full bg-white/10 text-white border border-white/20  backdrop-blur-sm group relative overflow-hidden"
+            className="flex items-center gap-3 px-6 py-3 rounded-full bg-white/10 text-white border border-white/20  backdrop-blur-sm group relative overflow-hidden"
             whileHover={{
               y: -3,
-                boxShadow: "0 10px 20px rgba(77, 208, 225, 0.2)",
+              boxShadow: "0 10px 20px rgba(77, 208, 225, 0.2)",
             }}
             initial={{ boxShadow: "0 4px 10px rgba(0, 183, 194, 0.2)" }}
           >
@@ -243,7 +242,6 @@ export default function LeftContent() {
             <FaArrowRight className="relative z-10 ml-1 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
           </motion.button>
         </Link>
-
       </motion.div>
       {/* Socials dengan animasi hover */}
       <motion.div
@@ -280,7 +278,6 @@ export default function LeftContent() {
           title="Copy email"
         />
       </motion.div>
-      
     </motion.div>
   );
 }

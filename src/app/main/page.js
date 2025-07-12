@@ -82,7 +82,7 @@ export default function MainPage() {
           <Contact />
         </div>
         <span className="mb-5">
-          <p>@2025 All rights reserved</p>
+          <p>@2025 All Rights Reserved</p>
         </span>
       </div>
 

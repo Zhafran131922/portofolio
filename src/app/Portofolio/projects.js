@@ -1,64 +1,97 @@
 "use client";
 import { motion } from "framer-motion";
-import { FaExternalLinkAlt } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
 import Image from "next/image";
-import ImageC from "../../../public/assets/image.jpg";
+import CNN from "../../../public/assets/cnn.jpg";
+import Diskominfo from "../../../public/assets/diskominfo.jpg";
+import ESC from "../../../public/assets/esc.jpg";
+import Mitsubishi from "../../../public/assets/mitsubishi.jpg";
+import Proposal from "../../../public/assets/proposal.jpg";
+import Ratingpage from "../../../public/assets/ratingpage.jpg";
+import Smartbiz from "../../../public/assets/smartbiz.jpg";
+import Smartfarm from "../../../public/assets/smartfarm.jpg";
+import Virtual from "../../../public/assets/virtual.jpg";
 
 export default function Projects() {
   const projects = [
     {
-      title: "Aritmatika Solver",
+      title: "Mitsubishi Training",
       description:
-        "Program ini dirancang untuk mempermudah pengguna dalam menyelesaikan soal-soal Aritmatika secara otomatis.",
-      image: ImageC,
+        "Program ini dirancang untuk mempermudah karyawan Mitsubishi Motors dalam mempelajari materi pelatihan.",
+      image: Mitsubishi,
       demoLink: "#",
-      detailLink: "#",
-      technologies: ["Python", "NumPy", "Matplotlib"],
+      detailLink: "https://github.com/Zhafran131922/mitsubishi-course-client.git",
+      technologies: ["Next.js", "Express.js", "MySQL"],
     },
     {
-      title: "AutoChat-Discord",
+      title: "Leaf Disease Detection",
       description:
-        "AutoChat adalah solusi otomatisasi untuk mengirim pesan ke saluran Discord secara terjadwal.",
-      image: "https://placehold.co/600x400/0f0f1c/white?text=AutoChat-Discord",
+        "Longan Leaf Disease Detection menggunakan CNN (Convolutional Neural Network) untuk deteksi penyakit pada daun kelengkeng",
+      image: CNN,
       demoLink: "#",
-      detailLink: "#",
-      technologies: ["JavaScript", "Discord API", "Node.js"],
+      detailLink: "https://expo.dev/accounts/gandhiexp/projects/leaf-detector/builds/fa8c391a-afba-460a-85c4-958463be9bd6",
+      technologies: ["React Native", "CNN", "MobileNetV2"],
     },
     {
-      title: "Buku Catatan",
+      title: "Smart Farming IoT",
       description:
-        "Website yang memungkinkan pengguna untuk membuat, menyimpan, dan mengelola catatan harian.",
-      image: "https://placehold.co/600x400/0f0f1c/white?text=Buku+Catatan",
+        "Smart Farming dengan sistem monitoring dan kontrol tanaman secara real-time di kebun Agro Purwosari Semarang.",
+      image: Smartfarm,
       demoLink: "#",
-      detailLink: "#",
-      technologies: ["React", "Firebase", "Tailwind CSS"],
+      detailLink: "https://github.com/Zhafran131922/SmartFarming_.git",
+      technologies: ["React Native", "Firebase", "Express.js"],
     },
     {
-      title: "Portfolio Website",
+      title: "FT Rating Page",
       description:
-        "Website portfolio modern dengan animasi interaktif dan desain responsif.",
-      image: "https://placehold.co/600x400/0f0f1c/white?text=Portfolio",
+        "Website penilaian kepuasan layanan Fakultas Teknik Universitas Negeri Semarang.",
+      image: Ratingpage,
       demoLink: "#",
       detailLink: "#",
-      technologies: ["Next.js", "Framer Motion", "Three.js"],
+      technologies: ["PHP", "MySQL", "JavaScript"],
     },
     {
-      title: "E-Commerce App",
-      description:
-        "Aplikasi e-commerce lengkap dengan sistem pembayaran dan manajemen produk.",
-      image: "https://placehold.co/600x400/0f0f1c/white?text=E-Commerce",
+      title: "Proposalify",
+      description: "Website untuk membuat proposal dengan mudah dan cepat.",
+      image: Proposal,
       demoLink: "#",
-      detailLink: "#",
-      technologies: ["React", "Redux", "Stripe API"],
+      detailLink: "https://github.com/Zhafran131922/Proposalify_.git",
+      technologies: ["React", "Express.js", "MongoDB"],
     },
     {
-      title: "Fitness Tracker",
-      description:
-        "Aplikasi pelacak kebugaran dengan fitur statistik dan rencana latihan.",
-      image: "https://placehold.co/600x400/0f0f1c/white?text=Fitness",
+      title: "Diskominfo Internship",
+      description: "Website penerimaan magang Diskominfo Kota Semarang",
+      image: Diskominfo,
       demoLink: "#",
       detailLink: "#",
-      technologies: ["React Native", "GraphQL", "MongoDB"],
+      technologies: ["React", "Express.js", "MySQL"],
+    },
+    {
+      title: "Smart Biz",
+      description:
+        "Smart Biz (Smart Business) merupakan aplikasi untuk mencatat pengeluaran dan pendapatan bisnis.",
+      image: Smartbiz,
+      demoLink: "#",
+      detailLink: "https://github.com/Zhafran131922/smartbiz-api.git",
+      technologies: ["Kotlin", "Express.js", "MySQL"],
+    },
+    {
+      title: "Virtual Tour",
+      description:
+        "Virtual Tour merupakan website untuk menampilkan tempat di SMKN 1 Semarang.",
+      image: Virtual,
+      demoLink: "#",
+      detailLink: "#",
+      technologies: ["PHP", "3Sixty"],
+    },
+    {
+      title: "Electrical Science Club",
+      description:
+        "Website Organisasi Electrical Science Club Universitas Negeri Semarang.",
+      image: ESC,
+      demoLink: "#",
+      detailLink: "#",
+      technologies: ["React"],
     },
   ];
 
@@ -69,8 +102,8 @@ export default function Projects() {
       opacity: 1,
       transition: {
         staggerChildren: 0.2,
-      }
-    }
+      },
+    },
   };
 
   const cardVariants = {
@@ -78,8 +111,8 @@ export default function Projects() {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.5 }
-    }
+      transition: { duration: 0.5 },
+    },
   };
 
   return (
@@ -90,7 +123,7 @@ export default function Projects() {
           background: "linear-gradient(145deg, #0f172a, #051d1f)",
         }}
       >
-        <motion.h2 
+        <motion.h2
           className="text-3xl md:text-4xl font-bold text-center text-[#4dd0e1] mb-10"
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -100,7 +133,7 @@ export default function Projects() {
           My Projects
         </motion.h2>
 
-        <motion.div 
+        <motion.div
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
           variants={containerVariants}
           initial="hidden"
@@ -112,7 +145,7 @@ export default function Projects() {
               key={index}
               className="group"
               variants={cardVariants}
-              whileHover={{ 
+              whileHover={{
                 y: -10,
                 boxShadow: "0 10px 30px rgba(77, 208, 225, 0.2)",
               }}
@@ -137,7 +170,7 @@ export default function Projects() {
                   )}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
                 </div>
-                
+
                 {/* Project Content */}
                 <div className="p-5 flex flex-col flex-grow">
                   <h3 className="text-xl font-semibold text-[#4dd0e1] mb-2">
@@ -146,11 +179,11 @@ export default function Projects() {
                   <p className="text-sm text-gray-300 mb-4">
                     {project.description}
                   </p>
-                  
+
                   {/* Technologies */}
                   <div className="flex flex-wrap gap-2 mt-auto mb-4">
                     {project.technologies.map((tech, i) => (
-                      <span 
+                      <span
                         key={i}
                         className="px-2 py-1 text-xs bg-[#4dd0e1]/10 text-[#4dd0e1] rounded-full"
                       >
@@ -158,22 +191,14 @@ export default function Projects() {
                       </span>
                     ))}
                   </div>
-                  
+
                   {/* Buttons */}
-                  <div className="flex justify-between">
-                    <a
-                      href={project.demoLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-sm text-white font-medium flex items-center gap-2 px-4 py-2 bg-[#4dd0e1]/20 hover:bg-[#4dd0e1]/30 transition-colors rounded-full"
-                    >
-                      Live Demo
-                    </a>
+                  <div className="flex justify-end">
                     <a
                       href={project.detailLink}
                       className="text-sm text-white font-medium flex items-center gap-2 px-4 py-2 bg-[#4dd0e1]/20 hover:bg-[#4dd0e1]/30 transition-colors rounded-full"
                     >
-                      Details <FaExternalLinkAlt className="text-xs" />
+                      Github <FaGithub className="text-xs" />
                     </a>
                   </div>
                 </div>

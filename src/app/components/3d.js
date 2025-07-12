@@ -8,35 +8,35 @@ export default function FloatingSpline() {
   const containerRef = useRef(null);
   const splineRef = useRef();
   
-  // Fungsi untuk menggerakkan Spline secara smooth
+  // Floating animation effect
   useEffect(() => {
     if (!splineRef.current) return;
     
     let animationId;
     let startTime;
-    const amplitude = 3; // Besar pergerakan naik turun (dalam persentase)
-    const speed = 0.001; // Kecepatan animasi
+    const amplitude = 3; // Vertical movement amount (percentage)
+    const speed = 0.001; // Animation speed
     
     const animate = (timestamp) => {
       if (!startTime) startTime = timestamp;
       
-      // Hitung waktu yang telah berlalu
+      // Calculate elapsed time
       const elapsed = timestamp - startTime;
       
-      // Hitung posisi Y baru menggunakan fungsi sinus untuk efek smooth
+      // Calculate new Y position using sine function for smooth effect
       const yOffset = Math.sin(elapsed * speed) * amplitude;
       
-      // Terapkan transformasi ke Spline
+      // Apply transformation to Spline
       splineRef.current.style.transform = `translateY(${yOffset}%)`;
       
-      // Lanjutkan animasi
+      // Continue animation
       animationId = requestAnimationFrame(animate);
     };
     
-    // Mulai animasi
+    // Start animation
     animationId = requestAnimationFrame(animate);
     
-    // Bersihkan saat komponen di-unmount
+    // Cleanup on unmount
     return () => {
       if (animationId) cancelAnimationFrame(animationId);
     };
@@ -45,6 +45,7 @@ export default function FloatingSpline() {
   return (
     <div 
       ref={containerRef}
+      className="hidden md:block" // Hidden on small screens, visible on medium and above
       style={{
         position: 'relative',
         width: '40vw',
@@ -52,7 +53,7 @@ export default function FloatingSpline() {
         overflow: 'hidden'
       }}
     >
-      {/* Lapisan transparan untuk menutupi watermark */}
+      {/* Watermark cover layer */}
       <div style={{
         position: 'absolute',
         top: 0,
@@ -63,7 +64,7 @@ export default function FloatingSpline() {
         pointerEvents: 'none',
       }} />
       
-      {/* Animasi floating untuk Spline */}
+      {/* Animated floating spline */}
       <motion.div
         style={{
           position: 'absolute',
@@ -79,8 +80,6 @@ export default function FloatingSpline() {
           scene="https://prod.spline.design/DY4L-aJQcs35wOmY/scene.splinecode"
         />
       </motion.div>
-      
-
     </div>
   );
 }
