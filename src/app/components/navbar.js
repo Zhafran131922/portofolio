@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 import {
   FaHome,
   FaUserAlt,
@@ -81,15 +82,17 @@ export default function Navbar() {
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <div className="w-full max-w-6xl mx-auto flex justify-between items-center">
-            <motion.div
-              className="font-bold tracking-wide cursor-pointer"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <span className="text-xl font-bold bg-gradient-to-r from-[#4dd0e1] to-[#00b7c2] to-[#00b7c2] text-transparent bg-clip-text">
-                Zhfrn
-              </span>
-            </motion.div>
+            <Link href="/" passHref>
+              <motion.div
+                className="font-bold tracking-wide cursor-pointer"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <span className="text-xl font-bold bg-gradient-to-r from-[#4dd0e1] to-[#00b7c2] text-transparent bg-clip-text">
+                  Zhfrn
+                </span>
+              </motion.div>
+            </Link>
 
             <ul className="flex space-x-6 sm:space-x-8 font-light text-sm">
               {navItems.map((item) => (
