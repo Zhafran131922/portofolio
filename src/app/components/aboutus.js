@@ -128,10 +128,10 @@ export default function AboutUs() {
             >
               Saya merupakan lulusan Universitas Negeri Semarang Program Studi
               Pendidikan Teknik Informatika dan Komputer S1. Saat ini saya telah
-              menyelesaikan skripsi yang berjudul "Pengembangan Aplikasi
-              Klasifikasi Penyakit pada Daun Kelengkeng Menggunakan Metode CNN"
-              untuk membantu kebun Agro Purwosari Semarang dalam perawatan
-              tanaman.
+              menyelesaikan skripsi yang berjudul &quot;Pengembangan Aplikasi
+              Klasifikasi Penyakit pada Daun Kelengkeng Menggunakan Metode
+              CNN&quot; untuk membantu kebun Agro Purwosari Semarang dalam
+              perawatan tanaman.
             </motion.p>
 
             {/* Buttons */}
@@ -268,7 +268,6 @@ export default function AboutUs() {
             description="Developed CNN model for longan leaf disease classification with 96% accuracy"
             stats="Research Paper"
           />
-          
         </motion.div>
       </div>
     </section>

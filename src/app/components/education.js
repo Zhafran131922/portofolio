@@ -2,7 +2,73 @@
 
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import GradientText from "../ReactBits/GradientText";
+
+// Create a separate component for timeline items
+const TimelineItem = ({ item, variants, dotVariants, yearVariants, index }) => {
+  const [itemRef, itemInView] = useInView({
+    triggerOnce: true,
+    threshold: 0.2,
+    rootMargin: "-50px 0px",
+  });
+
+  return (
+    <motion.div
+      ref={itemRef}
+      className={`mb-12 md:mb-16 flex items-center w-full ${
+        item.align === "left" ? "justify-start" : "justify-end"
+      }`}
+      variants={variants}
+      initial="hidden"
+      animate={itemInView ? "visible" : "hidden"}
+      custom={index}
+    >
+      <div
+        className={`relative w-full md:w-[calc(50%-40px)] p-5 md:p-6 rounded-xl md:rounded-2xl backdrop-blur-sm bg-white/5 border border-[#4dd0e1]/10 ${
+          item.align === "left"
+            ? "md:text-right md:pr-12"
+            : "md:text-left md:pl-12"
+        } transition-all duration-500`}
+      >
+        {/* Year badge */}
+        <motion.div
+          className={`absolute top-0 md:top-6 w-24 h-8 md:h-10 flex items-center justify-center rounded-full text-white font-bold text-xs md:text-sm z-10 ${
+            item.align === "left"
+              ? "left-0 md:right-0 md:left-auto md:translate-x-1/2 bg-gradient-to-r from-[#4dd0e1] to-[#00b7c2]"
+              : "right-0 md:left-0 md:right-auto md:-translate-x-1/2 bg-gradient-to-l from-[#4dd0e1] to-[#00b7c2]"
+          }`}
+          variants={yearVariants}
+          whileHover={{ scale: 1.05 }}
+        >
+          {item.year}
+        </motion.div>
+
+        <div
+          className={`mt-10 md:mt-0 ${
+            item.align === "left" ? "md:pr-4" : "md:pl-4"
+          }`}
+        >
+          <h3 className="text-xl md:text-2xl font-bold text-white mb-1 md:mb-2">
+            {item.title}
+          </h3>
+          <p className="text-[#c1f5ff]/80 text-sm md:text-base">
+            {item.description}
+          </p>
+
+          {/* Progress dots */}
+          <motion.div
+            className={`hidden md:block absolute top-1/2 -translate-y-1/2 w-3 md:w-4 h-3 md:h-4 rounded-full bg-[#00b7c2] border-4 border-[#0c1123] z-10 ${
+              item.align === "left"
+                ? "right-0 translate-x-1/2"
+                : "left-0 -translate-x-1/2"
+            }`}
+            variants={dotVariants}
+            whileHover={{ scale: 1.2 }}
+          />
+        </div>
+      </div>
+    </motion.div>
+  );
+};
 
 export default function Education() {
   const [sectionRef, sectionInView] = useInView({
@@ -44,6 +110,7 @@ export default function Education() {
       opacity: 1,
       transition: {
         when: "beforeChildren",
+        staggerChildren: 0.3,
       },
     },
   };
@@ -111,6 +178,9 @@ export default function Education() {
     <section
       ref={sectionRef}
       className="relative py-16 md:py-24 px-4 sm:px-6 md:px-8 overflow-hidden"
+      style={{
+        background: "transparent",
+      }}
     >
       <div className="relative z-10 max-w-6xl mx-auto">
         <motion.div
@@ -142,73 +212,18 @@ export default function Education() {
             variants={lineVariants}
           />
 
-          {timeline.map((item, index) => {
-            const [itemRef, itemInView] = useInView({
-              triggerOnce: true,
-              threshold: 0.2,
-              rootMargin: "-50px 0px",
-            });
-
-            return (
-              <motion.div
-                key={index}
-                ref={itemRef}
-                className={`mb-12 md:mb-16 flex items-center w-full ${
-                  item.align === "left" ? "justify-start" : "justify-end"
-                }`}
-                variants={
-                  item.align === "left" ? leftItemVariants : rightItemVariants
-                }
-                initial="hidden"
-                animate={itemInView ? "visible" : "hidden"}
-              >
-                <div
-                  className={`relative w-full md:w-[calc(50%-40px)] p-5 md:p-6 rounded-xl md:rounded-2xl backdrop-blur-sm ${
-                    item.align === "left"
-                      ? "md:text-right md:pr-12"
-                      : "md:text-left md:pl-12"
-                  } transition-all duration-500`}
-                >
-                  {/* Year badge */}
-                  <motion.div
-                    className={`absolute top-0 md:top-6 w-24 h-8 md:h-10 flex items-center justify-center rounded-full text-white font-bold text-xs md:text-sm z-10 ${
-                      item.align === "left"
-                        ? "left-0 md:right-0 md:left-auto md:translate-x-1/2 bg-gradient-to-r from-[#4dd0e1] to-[#00b7c2]"
-                        : "right-0 md:left-0 md:right-auto md:-translate-x-1/2 bg-gradient-to-l from-[#4dd0e1] to-[#00b7c2]"
-                    }`}
-                    variants={yearVariants}
-                    whileHover={{ scale: 1.05 }}
-                  >
-                    {item.year}
-                  </motion.div>
-
-                  <div
-                    className={`mt-10 md:mt-0 ${
-                      item.align === "left" ? "md:pr-4" : "md:pl-4"
-                    }`}
-                  >
-                    <h3 className="text-xl md:text-2xl font-bold text-white mb-1 md:mb-2">
-                      {item.title}
-                    </h3>
-                    <p className="text-[#c1f5ff]/80 text-sm md:text-base">
-                      {item.description}
-                    </p>
-
-                    {/* Progress dots */}
-                    <motion.div
-                      className={`hidden md:block absolute top-1/2 -translate-y-1/2 w-3 md:w-4 h-3 md:h-4 rounded-full bg-[#00b7c2] border-4 border-[#0c1123] z-10 ${
-                        item.align === "left"
-                          ? "right-0 translate-x-1/2"
-                          : "left-0 -translate-x-1/2"
-                      }`}
-                      variants={dotVariants}
-                      whileHover={{ scale: 1.2 }}
-                    />
-                  </div>
-                </div>
-              </motion.div>
-            );
-          })}
+          {timeline.map((item, index) => (
+            <TimelineItem
+              key={index}
+              item={item}
+              variants={
+                item.align === "left" ? leftItemVariants : rightItemVariants
+              }
+              dotVariants={dotVariants}
+              yearVariants={yearVariants}
+              index={index}
+            />
+          ))}
 
           {/* Graduation cap icon */}
           <motion.div

@@ -64,7 +64,7 @@ export default function ContactMeWithConnect() {
             Get in Touch
           </h2>
           <p className="text-[#c1f5ff]/80 mb-6">
-            Have something to discuss? Send me a message and let's talk.
+Have something to discuss? Send me a message and let&apos;s talk.
           </p>
         </motion.div>
 
