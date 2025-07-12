@@ -17,7 +17,7 @@ export default function MainPage() {
   useEffect(() => {
     setIsClient(true);
 
-    const particlesData = Array.from({ length: 100 }).map(() => ({
+    const particlesData = Array.from({ length: 150 }).map(() => ({
       id: Math.random().toString(36).substring(2, 9),
       size: Math.random() * 8 + 2,
       top: Math.random() * 100,

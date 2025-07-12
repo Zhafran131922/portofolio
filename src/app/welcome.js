@@ -251,7 +251,7 @@ export default function Portfolio() {
               <Link href="/main" className="flex-1">
                 <button className="w-full bg-white/10 hover:bg-white/20 text-white font-medium px-6 py-3 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105">
                   <ShinyText
-                    text="Click Me!"
+                    text="Let&apos;s Ride!"
                     disabled={false}
                     speed={3}
                     className="custom-class"

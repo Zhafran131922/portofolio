@@ -7,11 +7,7 @@ import { FaDownload, FaFolderOpen, FaWhatsapp } from "react-icons/fa";
 import Photo from "../../../public/assets/photo.png";
 import Image from "next/image";
 import Modal from "./modal";
-import {
-  MdWork,
-  MdImportantDevices,
-  MdDataUsage,
-} from "react-icons/md";
+import { MdWork, MdImportantDevices, MdDataUsage } from "react-icons/md";
 
 export default function AboutUs() {
   const fullText = "Irzhafran Ridho Pradana";
@@ -89,7 +85,7 @@ export default function AboutUs() {
           <div className="flex-1">
             <motion.div variants={itemVariants} className="mb-8">
               <h2 className="text-3xl sm:text-4xl font-bold text-[#4dd0e1] mb-2">
-                ✨ About Me
+                ✨ Hello World
               </h2>
               <p className="text-sm text-[#c1f5ff]/70">
                 Transforming ideas into digital experiences
@@ -123,12 +119,12 @@ export default function AboutUs() {
               variants={itemVariants}
               transition={{ delay: 0.3 }}
             >
-              Saya merupakan lulusan Universitas Negeri Semarang Program Studi
-              Pendidikan Teknik Informatika dan Komputer S1. Saat ini saya telah
-              menyelesaikan skripsi yang berjudul &quot;Pengembangan Aplikasi
-              Klasifikasi Penyakit pada Daun Kelengkeng Menggunakan Metode
-              CNN&quot; untuk membantu kebun Agro Purwosari Semarang dalam
-              perawatan tanaman.
+              I am a fresh graduate from Universitas Negeri Semarang, majoring
+              in Computer and Informatics Education (Bachelor’s degree). I have
+              recently completed my thesis titled &quot;Development of a Disease
+              Classification Application for Longan Leaves Using the CNN
+              Method&quot;, aimed at assisting Agro Purwosari Semarang in plant care
+              and maintenance.
             </motion.p>
 
             <motion.div
@@ -261,7 +257,7 @@ export default function AboutUs() {
             icon={<MdWork className="text-4xl" />}
             title="Experience"
             description="Internships, organizational involvement, and independent studies in tech and development fields."
-            stats="2022 – 2025"
+            stats="2023 – 2025"
             onDetailsClick={() =>
               openModal(
                 "Professional Experience",
@@ -315,9 +311,7 @@ export default function AboutUs() {
             title="Education"
             description="Bachelor's degree in Computer and Information Education from UNNES"
             stats="GPA: 3.73"
-            onDetailsClick={() =>
-              window.open("404", "_blank")
-            }
+            onDetailsClick={() => window.open("404", "_blank")}
           />
 
           <FeatureCard
@@ -326,7 +320,10 @@ export default function AboutUs() {
             description="Developed CNN model for longan leaf disease classification with 96% accuracy"
             stats="Power Point"
             onDetailsClick={() =>
-              window.open("https://docs.google.com/presentation/d/1eXT2TWpTGpGkDGGlrVIcCaLafXXXYm5A/edit?usp=sharing&ouid=114583783343560656332&rtpof=true&sd=true", "_blank")
+              window.open(
+                "https://docs.google.com/presentation/d/1eXT2TWpTGpGkDGGlrVIcCaLafXXXYm5A/edit?usp=sharing&ouid=114583783343560656332&rtpof=true&sd=true",
+                "_blank"
+              )
             }
           />
         </motion.div>

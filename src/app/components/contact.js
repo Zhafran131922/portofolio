@@ -121,7 +121,7 @@ export default function ContactMeWithConnect() {
               Get in Touch
             </h2>
             <p className="text-[#c1f5ff]/80 mb-6">
-              Have something to discuss? Send me a message and let&apos;s talk.
+              Open to collaborations, challenges, and coffee chats.
             </p>
           </motion.div>
 

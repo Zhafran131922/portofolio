@@ -17,11 +17,20 @@ const tabs = [
 
 export default function PortfolioPage() {
   const [activeTab, setActiveTab] = useState("Projects");
-  
+
   // Individual inView tracking for each section
-  const [headerRef, headerInView] = useInView({ triggerOnce: true, threshold: 0.1 });
-  const [tabsRef, tabsInView] = useInView({ triggerOnce: true, threshold: 0.1 });
-  const [contentRef, contentInView] = useInView({ triggerOnce: true, threshold: 0.1 });
+  const [headerRef, headerInView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+  const [tabsRef, tabsInView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+  const [contentRef, contentInView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
 
   const renderContent = () => {
     switch (activeTab) {
@@ -73,17 +82,17 @@ export default function PortfolioPage() {
   };
 
   return (
-    <section className="w-full px-4 sm:px-6 py-16 md:py-24 max-w-7xl mx-auto">
+    <section className="w-full px-4 sm:px-6 py-12 md:py-16 max-w-7xl mx-auto">
       {/* Header Section */}
       <motion.div
         ref={headerRef}
-        className="text-center mb-12 md:mb-16"
+        className="text-center mb-6 md:mb-8" // Reduced margin bottom
         variants={containerVariants}
         initial="hidden"
         animate={headerInView ? "visible" : "hidden"}
       >
-        <motion.h2 
-          className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 md:mb-4 text-white"
+        <motion.h2
+          className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2 md:mb-3 text-white" // Reduced margin bottom
           variants={itemVariants}
         >
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4dd0e1] to-[#00b7c2]">
@@ -91,22 +100,24 @@ export default function PortfolioPage() {
           </span>{" "}
           Showcase
         </motion.h2>
-        <motion.p 
-          className="text-[#c1f5ff]/80 max-w-2xl mx-auto text-base md:text-lg"
+        <motion.p
+          className="text-[#c1f5ff]/80 max-w-3xl mx-auto text-base md:text-lg"
           variants={itemVariants}
         >
-          Explore my journey through projects, certifications, and technical
-          expertise.
+          Here&apos;s a little bit of me, as a glimpse into my learning journey,
+          filled with experiments, challenges, and meaningful milestones that
+          helped me grow as a developer.
         </motion.p>
       </motion.div>
 
       {/* Tabs Section */}
-      <motion.div 
+      <motion.div
         ref={tabsRef}
         className="flex justify-center items-center bg-[#0c1123]/70 backdrop-blur-sm p-1.5 rounded-2xl shadow-lg max-w-4xl mx-auto gap-1 md:gap-2 border border-[#4dd0e1]/20"
         variants={containerVariants}
         initial="hidden"
         animate={tabsInView ? "visible" : "hidden"}
+        style={{ marginTop: '0.5rem' }} // Added small top margin
       >
         {tabs.map(({ label, icon }, index) => (
           <motion.button
@@ -114,7 +125,7 @@ export default function PortfolioPage() {
             custom={index}
             variants={tabVariants}
             onClick={() => setActiveTab(label)}
-            className={`flex flex-col items-center justify-center flex-1 py-3 md:py-4 px-2 rounded-xl transition-all duration-300 
+            className={`flex flex-col items-center justify-center flex-1 py-3 px-2 rounded-xl transition-all duration-300 
               ${
                 activeTab === label
                   ? "bg-gradient-to-br from-[#4dd0e1]/30 to-[#00b7c2]/30 text-white shadow-[0_0_15px_-3px_rgba(0,183,194,0.5)]"
@@ -136,9 +147,9 @@ export default function PortfolioPage() {
       </motion.div>
 
       {/* Content Section */}
-      <motion.div 
+      <motion.div
         ref={contentRef}
-        className="mt-12 md:mt-16 w-full"
+        className="mt-8 md:mt-1 w-full" // Reduced top margin
         initial={{ opacity: 0, y: 20 }}
         animate={contentInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.6 }}
