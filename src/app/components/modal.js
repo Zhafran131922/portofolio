@@ -1,69 +1,39 @@
-"use client";
-
+// components/modal.js
 import { motion } from "framer-motion";
-import { MdClose } from "react-icons/md";
+import { FaTimes } from "react-icons/fa";
 
-export default function Modal({ isOpen, onClose, content }) {
+export default function Modal({ isOpen, onClose, title, children }) {
   if (!isOpen) return null;
-
-  const overlayVariants = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1 },
-  };
-
-  const modalVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0 },
-  };
-
-  const formatContent = (content) => {
-    return content.split("\n").map((line, index) => {
-      if (line.startsWith("*") && line.endsWith("*")) {
-        return (
-          <p key={index} className="text-[#4dd0e1] font-medium my-2">
-            {line.replace(/\*/g, "")}
-          </p>
-        );
-      }
-      return (
-        <p key={index} className="mb-4 last:mb-0">
-          {line}
-        </p>
-      );
-    });
-  };
 
   return (
     <motion.div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm"
-      initial="hidden"
-      animate="visible"
-      exit="hidden"
-      variants={overlayVariants}
-      onClick={onClose}
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-lg "
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
     >
       <motion.div
-        className="bg-[#0f172a] rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto border border-[#4dd0e1]/30 shadow-xl relative"
-        variants={modalVariants}
-        onClick={(e) => e.stopPropagation()}
+        className="bg-[#0c1123] rounded-2xl border border-[#4dd0e1]/30 backdrop-blur-lg w-full max-w-3xl lg:max-w-4xl overflow-hidden"
+        initial={{ scale: 0.9, y: 50 }}
+        animate={{ scale: 1, y: 0 }}
+        exit={{ scale: 0.9, y: 50 }}
+        transition={{ type: "spring", damping: 20 }}
       >
-        <div className="sticky top-0 bg-[#0f172a]/90 backdrop-blur-sm z-10 p-6 border-b border-[#4dd0e1]/10 flex justify-between items-center">
-          <h3 className="text-2xl font-bold text-[#4dd0e1]">{content.title}</h3>
-          <button
+        {/* Modal Header */}
+        <div className="bg-gradient-to-r from-[#4dd0e1]/10 to-[#00b7c2]/10 p-6 border-b border-[#4dd0e1]/20 flex justify-between items-center">
+          <h3 className="text-2xl font-bold text-white">{title}</h3>
+          <button 
             onClick={onClose}
-            className="text-white/50 hover:text-white transition-colors"
+            className="text-[#c1f5ff]/70 hover:text-white transition-colors"
           >
-            <MdClose className="text-2xl" />
+            <FaTimes size={20} />
           </button>
         </div>
-
+        
+        {/* Modal Body */}
         <div className="p-6">
-          <div className="prose prose-invert text-white/80">
-            {formatContent(content.content)}
-          </div>
+          {children}
         </div>
-
-        <div className="sticky bottom-0 bg-gradient-to-t from-[#0f172a] to-transparent h-12"></div>
       </motion.div>
     </motion.div>
   );

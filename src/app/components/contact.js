@@ -57,6 +57,46 @@ export default function ContactMeWithConnect() {
     },
   };
 
+  // Data sosial media dengan link
+  const socialMedia = [
+    {
+      icon: <FaFacebookF />,
+      label: "Zhafran Gopreto",
+      platform: "Facebook",
+      link: "https://facebook.com/ZhafranGopreto",
+    },
+    {
+      icon: <FaInstagram />,
+      label: "rpradana10",
+      platform: "Instagram",
+      link: "https://instagram.com/rpradana10",
+    },
+    {
+      icon: <FaXTwitter />,
+      label: "ZhafranR_",
+      platform: "X",
+      link: "https://twitter.com/ZhafranR_",
+    },
+    {
+      icon: <FaTiktok />,
+      label: "zhafran10pradana",
+      platform: "Tiktok",
+      link: "https://tiktok.com/@zhafran10pradana",
+    },
+    {
+      icon: <FaDiscord />,
+      label: "zhafran131922",
+      platform: "Discord",
+      link: "https://discord.com/users/zhafran131922",
+    },
+    {
+      icon: <FaYoutube />,
+      label: "zhafran R",
+      platform: "YouTube",
+      link: "https://youtube.com/@zhafranr6395",
+    },
+  ];
+
   return (
     <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 md:px-8 py-8 justify-items-center">
       <FallingText
@@ -171,39 +211,68 @@ export default function ContactMeWithConnect() {
             Connect With Me
           </h3>
 
-          {[
-            {
-              icon: <FaFacebookF />,
-              label: "Zhafran Gopreto",
-              platform: "Facebook",
-            },
-            {
-              icon: <FaInstagram />,
-              label: "rpradana10",
-              platform: "Instagram",
-            },
-            { icon: <FaXTwitter />, label: "ZhafranR_", platform: "X" },
-            { icon: <FaTiktok />, label: "zhafran131922", platform: "Tiktok" },
-            {
-              icon: <FaDiscord />,
-              label: "zhafran131922",
-              platform: "Discord",
-            },
-            { icon: <FaYoutube />, label: "zhafranR", platform: "YouTube" },
-          ].map((item, idx) => (
-            <div
+          {socialMedia.map((item, idx) => (
+            <a
               key={idx}
-              className="flex items-center gap-3 px-4 py-3 rounded-xl bg-[#152032] hover:bg-[#1e2b40] transition"
+              href={item.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 px-4 py-3 rounded-xl bg-[#152032] hover:bg-[#1e2b40] transition group"
             >
-              <div className="text-xl text-[#4dd0e1]">{item.icon}</div>
+              <div className="text-xl text-[#4dd0e1] group-hover:text-[#00b7c2] transition-colors">
+                {item.icon}
+              </div>
               <div className="text-sm text-white leading-tight">
-                <div className="font-medium">{item.label}</div>
-                <div className="text-[#c1f5ff]/60 text-xs">
+                <div className="font-medium group-hover:text-[#4dd0e1] transition-colors">
+                  {item.label}
+                </div>
+                <div className="text-[#c1f5ff]/60 text-xs group-hover:text-[#c1f5ff] transition-colors">
                   on {item.platform}
                 </div>
               </div>
-            </div>
+              <div className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-4 w-4 text-[#4dd0e1]"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L9 9.414V13a1 1 0 102 0V9.414l1.293 1.293a1 1 0 001.414-1.414z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </div>
+            </a>
           ))}
+          
+          {/* Floating elements */}
+          <motion.div 
+            className="absolute top-4 right-4 w-3 h-3 rounded-full bg-[#4dd0e1]"
+            animate={{
+              scale: [1, 1.5, 1],
+              opacity: [0.7, 1, 0.7]
+            }}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          />
+          <motion.div 
+            className="absolute bottom-4 left-4 w-2 h-2 rounded-full bg-[#00b7c2]"
+            animate={{
+              scale: [1, 1.8, 1],
+              opacity: [0.5, 1, 0.5]
+            }}
+            transition={{
+              duration: 3,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 0.5
+            }}
+          />
         </div>
       </motion.div>
     </div>

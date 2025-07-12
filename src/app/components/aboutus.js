@@ -9,9 +9,6 @@ import Image from "next/image";
 import Modal from "./modal";
 import {
   MdWork,
-  MdSchool,
-  MdScience,
-  MdCode,
   MdImportantDevices,
   MdDataUsage,
 } from "react-icons/md";
@@ -134,14 +131,13 @@ export default function AboutUs() {
               perawatan tanaman.
             </motion.p>
 
-            {/* Buttons */}
             <motion.div
               className="flex gap-6 mb-16"
               variants={itemVariants}
               transition={{ delay: 0.4 }}
             >
               <a
-                href="https://drive.google.com/file/d/1lWU-Ql9h-IsyDYOSZ0H8oiYRSY6Z3T4C/view?usp=sharing" // ganti dengan path CV kamu
+                href="https://drive.google.com/file/d/1lWU-Ql9h-IsyDYOSZ0H8oiYRSY6Z3T4C/view?usp=sharing"
                 download
                 target="_blank"
                 rel="noopener noreferrer"
@@ -162,7 +158,7 @@ export default function AboutUs() {
                 </motion.button>
               </a>
               <a
-                href="https://wa.me/6281329251543" // ganti dengan path CV kamu
+                href="https://wa.me/6281329251543"
                 download
                 target="_blank"
                 rel="noopener noreferrer"
@@ -209,7 +205,6 @@ export default function AboutUs() {
                 }}
               >
                 <div className="w-[90%] h-[90%] rounded-full bg-gray-800/70 backdrop-blur-sm border border-[#4dd0e1]/30 flex items-center justify-center overflow-hidden">
-                  {/* Perbaikan untuk menampilkan foto */}
                   <Image
                     src={Photo}
                     alt="Profile Photo"
@@ -267,6 +262,52 @@ export default function AboutUs() {
             title="Experience"
             description="Internships, organizational involvement, and independent studies in tech and development fields."
             stats="2022 – 2025"
+            onDetailsClick={() =>
+              openModal(
+                "Professional Experience",
+                <div className="space-y-4">
+                  <ExperienceItem
+                    period="2023–2024"
+                    title="Electrical Science Club (ESC)"
+                    position="Software Division Expert Staff"
+                    description="Responsible for managing the software division's work programs and leading the development of the ESC website."
+                  />
+
+                  <ExperienceItem
+                    period="2023"
+                    title="Pengabdian Dosen Kepada Masyarakat ( Virtual Tour SMKN 1 Semarang )"
+                    position="Student Leader"
+                    description="Led the team for a community service project with the theme 'Virtual Tour in Vocational Schools'."
+                  />
+
+                  <ExperienceItem
+                    period="2023"
+                    title="Bangkit Academy by Google, GoTo, Traveloka"
+                    position="Cloud Computing Cohort"
+                    description="Completed an independent study program under the Ministry of Education focused on cloud computing."
+                  />
+
+                  <ExperienceItem
+                    period="2024"
+                    title="Internship at Semarang City Communication and Information Office (Diskominfo)"
+                    position="Web Developer"
+                    description="Interned at the Semarang City Government to develop and improve their internship web application."
+                  />
+                  <ExperienceItem
+                    period="2024"
+                    title="Pengabdian Dosen Kepada Masyarakat (Smart Farming IoT Agro Purwosari Mijen)"
+                    position="Student Leader"
+                    description="Involved in developing an Android-based IoT application to monitor plantation crops in real time. The system aimed to assist farmers in managing their agricultural fields more efficiently through smart farming technology."
+                  />
+                  <ExperienceItem
+                    period="2024"
+                    title="GEMASTIK 2024"
+                    position="Liaison Officer / Streamer"
+                    description="Contributed as a liaison officer and live streamer for the national-level GEMASTIK 2024 competition."
+                  />
+                </div>
+              )
+            }
           />
 
           <FeatureCard
@@ -274,20 +315,50 @@ export default function AboutUs() {
             title="Education"
             description="Bachelor's degree in Computer and Information Education from UNNES"
             stats="GPA: 3.73"
+            onDetailsClick={() =>
+              window.open("404", "_blank")
+            }
           />
+
           <FeatureCard
             icon={<MdDataUsage className="text-4xl" />}
             title="AI Research"
             description="Developed CNN model for longan leaf disease classification with 96% accuracy"
-            stats="Research Paper"
+            stats="Power Point"
+            onDetailsClick={() =>
+              window.open("https://docs.google.com/presentation/d/1eXT2TWpTGpGkDGGlrVIcCaLafXXXYm5A/edit?usp=sharing&ouid=114583783343560656332&rtpof=true&sd=true", "_blank")
+            }
           />
         </motion.div>
       </div>
+
+      {/* Modal for Experience Details */}
+      <Modal
+        isOpen={modalOpen}
+        onClose={() => setModalOpen(false)}
+        title={modalContent.title}
+      >
+        <div className="max-h-[60vh] overflow-y-auto pr-4">
+          {modalContent.content}
+        </div>
+      </Modal>
     </section>
   );
 }
 
-const FeatureCard = ({ icon, title, description, stats }) => {
+// Experience Item Component
+const ExperienceItem = ({ period, title, position, description }) => (
+  <div className="border-l-2 border-[#4dd0e1] pl-4 pb-4 relative">
+    <div className="absolute -left-[7px] top-0 w-3 h-3 rounded-full bg-[#4dd0e1]"></div>
+    <div className="text-[#00b7c2] font-semibold text-sm">{period}</div>
+    <h4 className="text-lg font-bold text-white mt-1">{title}</h4>
+    <div className="text-[#4dd0e1] font-medium italic">{position}</div>
+    <p className="text-[#c1f5ff]/80 mt-2">{description}</p>
+  </div>
+);
+
+// FeatureCard with onDetailsClick prop
+const FeatureCard = ({ icon, title, description, stats, onDetailsClick }) => {
   return (
     <motion.div
       className="bg-white/5 p-8 rounded-2xl backdrop-blur-sm border border-white/10 hover:border-[#4dd0e1]/30 transition-all h-full"
@@ -317,7 +388,10 @@ const FeatureCard = ({ icon, title, description, stats }) => {
         </p>
         <div className="flex justify-between items-center mt-auto pt-4 border-t border-white/10">
           <span className="text-[#4dd0e1] text-sm font-medium">{stats}</span>
-          <button className="text-[#4dd0e1] text-sm flex items-center gap-2 hover:gap-3 transition-all">
+          <button
+            className="text-[#4dd0e1] text-sm flex items-center gap-2 hover:gap-3 transition-all"
+            onClick={onDetailsClick}
+          >
             Details
             <span className="text-xs">→</span>
           </button>
