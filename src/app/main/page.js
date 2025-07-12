@@ -62,7 +62,7 @@ export default function MainPage() {
 
       <div className="relative z-10 flex flex-col items-center justify-center w-full max-w-7xl px-8 gap-16">
         <div id="home" className="w-full">
-          <div className="flex flex-col md:flex-row items-center justify-between w-full gap-16 mt-25 md:mt-0">
+          <div className="flex flex-col md:flex-row items-center justify-between w-full gap-16 mt-15 md:mt-0">
             <LeftContent />
             <RightContent />
           </div>
