@@ -317,7 +317,7 @@ export default function AboutUs() {
           <FeatureCard
             icon={<MdDataUsage className="text-4xl" />}
             title="AI Research"
-            description="Developed CNN model for longan leaf disease classification with 96% accuracy"
+            description="Developed CNN model for longan leaf disease classification with 98% accuracy"
             stats="Power Point"
             onDetailsClick={() =>
               window.open(
