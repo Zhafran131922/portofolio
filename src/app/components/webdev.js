@@ -153,7 +153,7 @@ export default function LeftContent() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8 }}
         >
-          Computer and Information Education Student
+          Computer and Informatics Education Student
         </motion.p>
         <motion.span
           className="ml-1 text-[#c1f5ff]"
