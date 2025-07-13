@@ -104,7 +104,7 @@ export default function ContactMeWithConnect() {
         manualMode={false}
         blurAmount={5}
         borderColor="#4dd0e1"
-        animationDuration={2}
+        hanimationDuration={2}
         pauseBetweenAnimations={1}
       />
       <motion.div
