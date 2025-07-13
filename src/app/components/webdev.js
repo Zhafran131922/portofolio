@@ -90,6 +90,30 @@ export default function LeftContent() {
     );
   };
 
+ const GradientUnderline = () => (
+  <svg
+    viewBox="0 0 300 20"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    className="absolute bottom-0 left-0 w-full h-3"
+    preserveAspectRatio="none"
+  >
+    <path
+      d="M0 15 Q150 0 300 15"
+      stroke="url(#gradient)"
+      strokeWidth="8"
+      fill="transparent"
+    />
+    <defs>
+      <linearGradient id="gradient" x1="0" y1="0" x2="300" y2="0" gradientUnits="userSpaceOnUse">
+        <stop stopColor="#fce38a" />
+        <stop stopColor="#95fbc1" offset="0.5" />
+        <stop stopColor="#6654f1" offset="1" />
+      </linearGradient>
+    </defs>
+  </svg>
+);
+
   return (
     <motion.div
       className="flex flex-col gap-6 justify-center max-w-xl text-white"
@@ -112,19 +136,15 @@ export default function LeftContent() {
         Designing Smarter Futures
       </motion.div>
       {/* Title dengan animasi gradient text */}
-      <motion.h1
-        className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight"
-        variants={itemVariants}
-      >
-        Web & Mobile{" "}
-        <GradientText
-          colors={["#4dd0e1", "#00b7c2", "#4dd0e1"]}
-          animationSpeed={4}
-          className="font-bold"
-        >
-          Developer
-        </GradientText>
-      </motion.h1>
+     <motion.h1
+      className="relative inline-block text-4xl sm:text-5xl md:text-6xl font-bold leading-tight"
+    >
+      Web & Mobile{" "}
+      <span className="relative inline-block">
+        <span className="relative z-10 text-[#00b7c2]">Developer</span>
+        <GradientUnderline />
+      </span>
+    </motion.h1>
       {/* Subtitle dengan animasi kursor */}
       <motion.div className="flex items-center" variants={itemVariants}>
         <motion.p
