@@ -5,6 +5,7 @@ import { FaPaperPlane, FaUser, FaEnvelope, FaComment } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import FallingText from "../ReactBits/FallingText";
+import Notification from "./success";
 
 // Icon sosmed (gunakan dari react-icons)
 import {
@@ -20,18 +21,50 @@ export default function ContactMeWithConnect() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
+  const [notification, setNotification] = useState({
+    show: false,
+    message: "",
+    type: "", // 'success' or 'error'
+  });
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setTimeout(() => {
-      setIsSubmitting(false);
+
+    try {
+      const response = await fetch("/api/sendmails", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Failed to send message");
+      }
+
       setForm({ name: "", email: "", message: "" });
-    }, 1500);
+      setNotification({
+        show: true,
+        message: "Your message has been sent successfully!",
+        type: "success",
+      });
+    } catch (error) {
+      console.error("Error:", error);
+      setNotification({
+        show: true,
+        message:
+          error.message || "Failed to send message. Please try again later.",
+        type: "error",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const containerVariants = {
@@ -100,7 +133,7 @@ export default function ContactMeWithConnect() {
   return (
     <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 md:px-8 py-8 justify-items-center">
       <FallingText
-        sentence="What&apos;s on your mind?"
+        sentence="What's on your mind?"
         manualMode={false}
         blurAmount={5}
         borderColor="#4dd0e1"
@@ -246,35 +279,42 @@ export default function ContactMeWithConnect() {
               </div>
             </a>
           ))}
-          
+
           {/* Floating elements */}
-          <motion.div 
+          <motion.div
             className="absolute top-4 right-4 w-3 h-3 rounded-full bg-[#4dd0e1]"
             animate={{
               scale: [1, 1.5, 1],
-              opacity: [0.7, 1, 0.7]
+              opacity: [0.7, 1, 0.7],
             }}
             transition={{
               duration: 2,
               repeat: Infinity,
-              ease: "easeInOut"
+              ease: "easeInOut",
             }}
           />
-          <motion.div 
+          <motion.div
             className="absolute bottom-4 left-4 w-2 h-2 rounded-full bg-[#00b7c2]"
             animate={{
               scale: [1, 1.8, 1],
-              opacity: [0.5, 1, 0.5]
+              opacity: [0.5, 1, 0.5],
             }}
             transition={{
               duration: 3,
               repeat: Infinity,
               ease: "easeInOut",
-              delay: 0.5
+              delay: 0.5,
             }}
           />
         </div>
       </motion.div>
+      {notification.show && (
+        <Notification
+          message={notification.message}
+          type={notification.type}
+          onClose={() => setNotification({ ...notification, show: false })}
+        />
+      )}
     </div>
   );
 }
