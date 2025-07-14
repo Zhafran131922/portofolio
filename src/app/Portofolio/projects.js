@@ -20,7 +20,8 @@ export default function Projects() {
         "Program ini dirancang untuk mempermudah karyawan Mitsubishi Motors dalam mempelajari materi pelatihan.",
       image: Mitsubishi,
       demoLink: "#",
-      detailLink: "https://github.com/Zhafran131922/mitsubishi-course-client.git",
+      detailLink:
+        "https://github.com/Zhafran131922/mitsubishi-course-client.git",
       technologies: ["Next.js", "Express.js", "MySQL"],
     },
     {
@@ -29,7 +30,8 @@ export default function Projects() {
         "Longan Leaf Disease Detection menggunakan CNN (Convolutional Neural Network) untuk deteksi penyakit pada daun kelengkeng",
       image: CNN,
       demoLink: "#",
-      detailLink: "https://expo.dev/accounts/gandhiexp/projects/leaf-detector/builds/fa8c391a-afba-460a-85c4-958463be9bd6",
+      detailLink:
+        "https://expo.dev/accounts/gandhiexp/projects/leaf-detector/builds/fa8c391a-afba-460a-85c4-958463be9bd6",
       technologies: ["React Native", "CNN", "MobileNetV2"],
     },
     {
@@ -118,13 +120,13 @@ export default function Projects() {
   return (
     <section id="projects" className="w-full px-4 py-16 sm:py-24">
       <div
-        className="max-w-6xl mx-auto rounded-2xl border border-[#4dd0e1]/10 shadow-[0_4px_30px_rgba(0,183,194,0.1)] backdrop-blur-md p-6 sm:p-8 md:p-10"
+        className="max-w-6xl mx-auto rounded-2xl border border-[#4dd0e1]/10 shadow-[0_4px_30px_rgba(0,183,194,0.1)] backdrop-blur-md p-4 sm:p-8 md:p-10"
         style={{
           background: "linear-gradient(145deg, #0f172a, #051d1f)",
         }}
       >
         <motion.h2
-          className="text-3xl md:text-4xl font-bold text-center text-[#4dd0e1] mb-10"
+          className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-[#4dd0e1] mb-8 sm:mb-10"
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -134,7 +136,7 @@ export default function Projects() {
         </motion.h2>
 
         <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
+          className="grid grid-cols-1 gap-5 sm:gap-8 sm:grid-cols-2 lg:grid-cols-3"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -143,7 +145,7 @@ export default function Projects() {
           {projects.map((project, index) => (
             <motion.div
               key={index}
-              className="group"
+              className="group w-full"
               variants={cardVariants}
               whileHover={{
                 y: -10,
@@ -152,7 +154,7 @@ export default function Projects() {
             >
               <div className="bg-gradient-to-br from-[#0f172a] to-[#0a1a1f] border border-[#4dd0e1]/10 rounded-xl overflow-hidden h-full flex flex-col">
                 {/* Project Image */}
-                <div className="relative h-48 overflow-hidden">
+                <div className="relative h-40 sm:h-48 w-full overflow-hidden">
                   {typeof project.image === "string" ? (
                     <img
                       src={project.image}
@@ -172,20 +174,20 @@ export default function Projects() {
                 </div>
 
                 {/* Project Content */}
-                <div className="p-5 flex flex-col flex-grow">
-                  <h3 className="text-xl font-semibold text-[#4dd0e1] mb-2">
+                <div className="p-4 sm:p-5 flex flex-col flex-grow">
+                  <h3 className="text-lg sm:text-xl font-semibold text-[#4dd0e1] mb-2">
                     {project.title}
                   </h3>
-                  <p className="text-sm text-gray-300 mb-4">
+                  <p className="text-xs sm:text-sm text-gray-300 mb-3 sm:mb-4">
                     {project.description}
                   </p>
 
                   {/* Technologies */}
-                  <div className="flex flex-wrap gap-2 mt-auto mb-4">
+                  <div className="flex flex-wrap gap-1 sm:gap-2 mt-auto mb-3 sm:mb-4">
                     {project.technologies.map((tech, i) => (
                       <span
                         key={i}
-                        className="px-2 py-1 text-xs bg-[#4dd0e1]/10 text-[#4dd0e1] rounded-full"
+                        className="px-2 py-1 text-[10px] sm:text-xs bg-[#4dd0e1]/10 text-[#4dd0e1] rounded-full"
                       >
                         {tech}
                       </span>
@@ -196,7 +198,7 @@ export default function Projects() {
                   <div className="flex justify-end">
                     <a
                       href={project.detailLink}
-                      className="text-sm text-white font-medium flex items-center gap-2 px-4 py-2 bg-[#4dd0e1]/20 hover:bg-[#4dd0e1]/30 transition-colors rounded-full"
+                      className="text-xs sm:text-sm text-white font-medium flex items-center gap-1 sm:gap-2 px-3 sm:px-4 py-1 sm:py-2 bg-[#4dd0e1]/20 hover:bg-[#4dd0e1]/30 transition-colors rounded-full"
                     >
                       Github <FaGithub className="text-xs" />
                     </a>
