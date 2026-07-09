@@ -1,10 +1,11 @@
 "use client";
 import { motion } from "framer-motion";
-import { FaGithub } from "react-icons/fa";
 import Image from "next/image";
 import CNN from "../../../public/assets/cnn.jpg";
+import CRM from "../../../public/assets/crm.jpeg";
 import Diskominfo from "../../../public/assets/diskominfo.jpg";
 import ESC from "../../../public/assets/esc.jpg";
+import HRIS from "../../../public/assets/hris.jpeg";
 import Mitsubishi from "../../../public/assets/mitsubishi.jpg";
 import Proposal from "../../../public/assets/proposal.jpg";
 import Ratingpage from "../../../public/assets/ratingpage.jpg";
@@ -15,13 +16,24 @@ import Virtual from "../../../public/assets/virtual.jpg";
 export default function Projects() {
   const projects = [
     {
+      title: "CRM System",
+      description:
+        "A CRM platform with three roles — Admin, Sales, and Customer. Customers can order products or request product services under an MOU agreement.",
+      image: CRM,
+      technologies: ["Vue.js", "Python", "PostgreSQL"],
+    },
+    {
+      title: "HRIS",
+      description:
+        "A Human Resource Information System for HR to manage employees, including payroll, attendance, employee data, and other HR operations.",
+      image: HRIS,
+      technologies: ["Vue.js", "Python", "PostgreSQL"],
+    },
+    {
       title: "Mitsubishi Training",
       description:
         "Program ini dirancang untuk mempermudah karyawan Mitsubishi Motors dalam mempelajari materi pelatihan.",
       image: Mitsubishi,
-      demoLink: "#",
-      detailLink:
-        "https://github.com/Zhafran131922/mitsubishi-course-client.git",
       technologies: ["Next.js", "Express.js", "MySQL"],
     },
     {
@@ -29,9 +41,6 @@ export default function Projects() {
       description:
         "Longan Leaf Disease Detection menggunakan CNN (Convolutional Neural Network) untuk deteksi penyakit pada daun kelengkeng",
       image: CNN,
-      demoLink: "#",
-      detailLink:
-        "https://expo.dev/accounts/gandhiexp/projects/leaf-detector/builds/fa8c391a-afba-460a-85c4-958463be9bd6",
       technologies: ["React Native", "CNN", "MobileNetV2"],
     },
     {
@@ -39,8 +48,6 @@ export default function Projects() {
       description:
         "Smart Farming dengan sistem monitoring dan kontrol tanaman secara real-time di kebun Agro Purwosari Semarang.",
       image: Smartfarm,
-      demoLink: "#",
-      detailLink: "https://github.com/Zhafran131922/SmartFarming_.git",
       technologies: ["React Native", "Firebase", "Express.js"],
     },
     {
@@ -48,24 +55,18 @@ export default function Projects() {
       description:
         "Website penilaian kepuasan layanan Fakultas Teknik Universitas Negeri Semarang.",
       image: Ratingpage,
-      demoLink: "#",
-      detailLink: "#",
       technologies: ["PHP", "MySQL", "JavaScript"],
     },
     {
       title: "Proposalify",
       description: "Website untuk membuat proposal dengan mudah dan cepat.",
       image: Proposal,
-      demoLink: "#",
-      detailLink: "https://github.com/Zhafran131922/Proposalify_.git",
       technologies: ["React", "Express.js", "MongoDB"],
     },
     {
       title: "Diskominfo Internship",
       description: "Website penerimaan magang Diskominfo Kota Semarang",
       image: Diskominfo,
-      demoLink: "#",
-      detailLink: "#",
       technologies: ["React", "Express.js", "MySQL"],
     },
     {
@@ -73,8 +74,6 @@ export default function Projects() {
       description:
         "Smart Biz (Smart Business) merupakan aplikasi untuk mencatat pengeluaran dan pendapatan bisnis.",
       image: Smartbiz,
-      demoLink: "#",
-      detailLink: "https://github.com/Zhafran131922/smartbiz-api.git",
       technologies: ["Kotlin", "Express.js", "MySQL"],
     },
     {
@@ -82,8 +81,6 @@ export default function Projects() {
       description:
         "Virtual Tour merupakan website untuk menampilkan tempat di SMKN 1 Semarang.",
       image: Virtual,
-      demoLink: "#",
-      detailLink: "#",
       technologies: ["PHP", "3Sixty"],
     },
     {
@@ -91,8 +88,6 @@ export default function Projects() {
       description:
         "Website Organisasi Electrical Science Club Universitas Negeri Semarang.",
       image: ESC,
-      demoLink: "#",
-      detailLink: "#",
       technologies: ["React"],
     },
   ];
@@ -183,7 +178,7 @@ export default function Projects() {
                   </p>
 
                   {/* Technologies */}
-                  <div className="flex flex-wrap gap-1 sm:gap-2 mt-auto mb-3 sm:mb-4">
+                  <div className="flex flex-wrap gap-1 sm:gap-2 mt-auto">
                     {project.technologies.map((tech, i) => (
                       <span
                         key={i}
@@ -192,16 +187,6 @@ export default function Projects() {
                         {tech}
                       </span>
                     ))}
-                  </div>
-
-                  {/* Buttons */}
-                  <div className="flex justify-end">
-                    <a
-                      href={project.detailLink}
-                      className="text-xs sm:text-sm text-white font-medium flex items-center gap-1 sm:gap-2 px-3 sm:px-4 py-1 sm:py-2 bg-[#4dd0e1]/20 hover:bg-[#4dd0e1]/30 transition-colors rounded-full"
-                    >
-                      Github <FaGithub className="text-xs" />
-                    </a>
                   </div>
                 </div>
               </div>

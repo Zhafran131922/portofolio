@@ -257,11 +257,18 @@ export default function AboutUs() {
             icon={<MdWork className="text-4xl" />}
             title="Experience"
             description="Internships, organizational involvement, and independent studies in tech and development fields."
-            stats="2023 – 2025"
+            stats="2023 – Present"
             onDetailsClick={() =>
               openModal(
                 "Professional Experience",
                 <div className="space-y-4">
+                  <ExperienceItem
+                    period="2025 – Present"
+                    title="Amazink People Group"
+                    position="Front End Developer"
+                    description="Developing and maintaining front-end interfaces for web applications, including ERP, MRP, HRIS, and CRM systems, with a focus on responsive UI, user experience, and seamless integration with backend services."
+                  />
+
                   <ExperienceItem
                     period="2023–2024"
                     title="Electrical Science Club (ESC)"
